@@ -1,9 +1,5 @@
-// const questiontrack= document.getElementsByClassName('question-track');
 
-// window.addEventListener('load',()=>{
-  
-// })
-
+// PITANJA
 const pitanja=[
 
     {id:1,
@@ -52,8 +48,18 @@ const pitanja=[
                 {id:8,odgovor:"ECP",clicked:false}]
                 },
 ];
+
+// VARIABLE
 let n;
 let dozvoljenbroj=2+n;
+let sviodgovori=[
+    [],[],[],[]
+];
+let broj1;
+let broj2;
+let broj3;
+let broj4;
+// END VARIABLE
 
 
 
@@ -62,7 +68,7 @@ function startquizz(data){
       pokaziPitanje(pitanje);
     });    
 }
-
+// TRAKA SA BROJEVIMA PITANJA
 function pokaziPitanje(p){
     const questiontrack= document.querySelector(".question-track");
     const brojpitanja=document.createElement('div');
@@ -85,7 +91,7 @@ function changeColor(){
 }
 
 
-
+// izlistavanje odgovora
 function pokaziOdgovore(o){
     const answers= document.querySelector('.answers');
     
@@ -99,15 +105,9 @@ function pokaziOdgovore(o){
 }
 
 
-let sviodgovori=[
-    [],[],[],[]
-];
-let broj1;
-let broj2;
-let broj3;
-let broj4;
 
 
+// FUNKCIJA KLIK TRIGGERU HTML
 function selectAnswer(e){
     console.log(e.getAttribute('name'),typeof e.getAttribute('value'),e.getAttribute('id'));
     let odgovor={
@@ -151,7 +151,7 @@ function selectAnswer(e){
 }
   
 
-
+// IZLISTAVANJE PITANJA(TEXT)
   function displaypitanje(data,id){
     const question= document.querySelector(".question");
     const pi= pitanja.find(p=>p.id==id+1);
@@ -179,6 +179,7 @@ function selectAnswer(e){
     
 }
 
+// FUNCKIJA BRISANJE PLOĆE NAKON PROMJENE PITANJA
 function removeQuestions(){
     const answers= document.querySelector('.answers');
    while(answers.firstChild){
@@ -190,6 +191,7 @@ function getRndInteger(min, max) {
     return  Math.floor(Math.random() * (max - min)) + min;
   }
 
+//   BUTTON FUNKCIJE-VIDLJIVOST- FINISH BUTTON TAKOĐER
   function prevNextBtn(){
     const prev= document.querySelector('.prev');
     const next= document.querySelector('.next');
@@ -211,7 +213,6 @@ function getRndInteger(min, max) {
       }else{
         finish.classList.remove("active")
       }
-
   }
   let checkvariabla;
   function zadnjaProvjera(){
@@ -230,14 +231,19 @@ for (var i = 0; i <sviodgovori.length; i++) {
   }     
  
 }
+
+// ZADNJI ISPIS ODGOVORA
 function finalIspis(i){
+    //VARIABLE
     const question= document.querySelector(".question");
     const answers= document.querySelector(".answers");
+    const finish= document.querySelector('.finish');
     const questiontrack= document.querySelector(".question-track");
     const prev= document.querySelector('.prev');
     const next= document.querySelector('.next');
     let svians=document.getElementsByClassName('ans'); 
-   
+     
+//    BRISANJE I DODAVANJE VARIABLI NA PLOĆU
     ans1.style.visibility="visible";
     ans2.style.visibility="visible";
     ans3.style.visibility="visible";
@@ -247,6 +253,8 @@ function finalIspis(i){
     questiontrack.style.display="none";
     question.style.display="none";
     answers.style.display="none";
+    finish.classList.remove('active');
+
     sviodgovori[i].forEach(a=>{
         svians[i].innerHTML+=`
             <span>${a.id}:${a.name}</span>
@@ -254,12 +262,14 @@ function finalIspis(i){
     })
 }
 
-
+// START APLIKACIJE
 window.onload = () => {
     broj1=getRndInteger(2,9);
     broj2=getRndInteger(2,9);
     broj3=getRndInteger(2,9);
     broj4=getRndInteger(2,9);
+    const mask= document.querySelector('.mask');
+      setTimeout(function(){ mask.classList.add('hidden'); }, 2000);
     
     startquizz(pitanja);
     n=1;
@@ -267,7 +277,13 @@ window.onload = () => {
     displaypitanje(pitanja,0)
   };
 
+
+// PROMJENA PITANJA
    function promjeniPitanje(id){
+     const mask= document.querySelector('.mask');
+     mask.classList.remove('hidden');
+      setTimeout(function(){ mask.classList.add('hidden'); }, 1000);
+
    n=id;
    prevNextBtn();
    removeQuestions();

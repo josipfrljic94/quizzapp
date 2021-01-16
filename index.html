@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
+    <title>Quizz app</title>
 </head>
 <body>
+    <header>
+        <div class="nav">
+            <li class="logo"><a href="https://info3.hr/hr/"><img src="image/logo.png"/> </a></li>
+            <li><a href="https://josipfrljicportfolio.netlify.app/">Author</a></li>
+        </div>
+    </header>
     <div class="alert">
             
     </div>
+      <div class="mask">
+            <img src="image/logo.png"/>
+       </div>
     <div class="container">
-       
+     
 
         <div class="question-track">
 
@@ -21,17 +32,17 @@
             <div class="prev" onclick="promjeniPitanje(n-1)">Prev</div>
             <div class="next" onclick="promjeniPitanje(n+1)">Next</div>
             <div class="finish" onclick="finish()">Finish</div>
+            
             <div class="ans" id="ans1">Odgovori pitanje 1: </div>
             <div class="ans" id="ans2">Odgovori pitanje 2: </div>
             <div class="ans" id="ans3">Odgovori pitanje 3:</div>
             <div class="ans" id="ans4">Odgovori pitanje 4:</div>
-            <div class="question">
-               
-            </div>
+            
+            <div class="question">  
+             </div>
 
-        <div class="answers">
+        <div class="answers"></div>
 
-        </div>
         </div>
       
     </div>
