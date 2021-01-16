@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+header {
+  background: #070707;
+}
+header .nav {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .nav li {
+  font-size: 1.3rem;
+  list-style: none;
+}
+header .nav li a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #8d8c8c;
+}
+header .nav .logo img {
+  height: 50px;
+  width: 100px;
+}
+
+.alert {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  top: 10vh;
+  height: 50px;
+  width: 80%;
+  margin: 0% 8%;
+  background: #7c9473;
+  align-items: center;
+}
+.alert h2 {
+  color: #070707;
+  text-align: center;
+}
+
+.alert.active {
+  display: grid;
+}
+
+.mask {
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  top: 0;
+  visibility: visible;
+  justify-content: center;
+  align-items: center;
+  background: #f1d6c4;
+  transition: 0.8s ease;
+}
+.mask img {
+  width: 100%;
+  height: 20%;
+}
+
+.mask.hidden {
+  top: -1500px;
+  visibility: hidden;
+  transition: 0.8s ease;
+}
+
+body {
+  background: #fafafa;
+  height: 100vh;
+}
+
+.container {
+  max-width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.track-broj {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px 0 0px 5px;
+  box-shadow: 2px 4px 3px grey;
+  background: #8d8c8c;
+  color: #070707;
+  text-align: center;
+  display: grid;
+  margin: 5px 0;
+  cursor: pointer;
+}
+.track-broj:hover {
+  background: #7c9473;
+  box-shadow: 1px 2px 2px darkgrey;
+  transition: 0.4s ease-in-out;
+}
+.track-broj .line-broj {
+  margin-top: 25%;
+  font-weight: bolder;
+}
+
+.track-broj.active {
+  background: #7c9473;
+}
+
+@media only screen and (max-width: 768px) {
+  .question-track {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    justify-content: space-around;
+  }
+
+  .track-broj {
+    border-radius: 5px;
+  }
+}
+.table {
+  display: grid;
+  height: 60vh;
+  width: 80%;
+  box-shadow: 3px 8px 9px #8d8c8c;
+  border-radius: 5px;
+  position: relative;
+  transition: 2s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  .table {
+    width: 100%;
+  }
+}
+.answers {
+  width: 100%;
+  height: 100%;
+  border-top: 3px solid #8d8c8c;
+  z-index: 3;
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 2px;
+  background: #f1d6c4;
+  border-radius: 5px;
+}
+.answers .answer-box {
+  display: grid;
+  align-items: center;
+  height: 30px;
+  border-radius: 5px;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+  background: #8d8c8c;
+  margin: 2px;
+  cursor: pointer;
+}
+.answers .answer-box:hover {
+  background: #7c9473;
+  transition: 0.3s ease-in-out;
+}
+.answers .answer-box .answer {
+  color: #070707;
+  border: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .answer-box {
+    height: 50px;
+  }
+
+  .answer {
+    font-size: 0.8rem;
+  }
+}
+.question {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+}
+.question .text-pitanja {
+  color: #8d8c8c;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 768px) {
+  .question {
+    border-top: 3px solid #8d8c8c;
+  }
+}
+.finish, .prev, .next {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  height: 35px;
+  width: 80px;
+  border-radius: 5px;
+  background: #7c9473;
+  color: #070707;
+  box-shadow: 2px 3px 2px grey;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fafafa;
+}
+.finish:hover, .prev:hover, .next:hover {
+  transform: scale(0.985);
+  box-shadow: 1px 2px 2px darkgrey;
+}
+
+.next {
+  right: 0;
+}
+
+.prev {
+  left: 0;
+}
+
+.prev.hidden {
+  display: none;
+}
+
+.next.hidden {
+  display: none;
+}
+
+.finish {
+  display: none;
+  right: 0;
+}
+
+.finish.active {
+  display: grid;
+}
+
+#ans4, #ans3, #ans2, #ans1 {
+  border-top: 1px solid #070707;
+  position: absolute;
+  left: 5%;
+  visibility: hidden;
+}
+
+#ans1 {
+  top: 0%;
+}
+
+#ans2 {
+  top: 25%;
+}
+
+#ans3 {
+  top: 50%;
+}
+
+#ans4 {
+  top: 75%;
+}
+
+/*# sourceMappingURL=style.css.map */

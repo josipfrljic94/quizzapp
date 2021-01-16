@@ -1,0 +1,44 @@
+@import "./config";
+.answers{
+    width: 100%;
+    height: 100%;
+    border-top: 3px solid $primaryColor;
+    z-index: 3;
+    display: grid;
+    align-content: center;
+    grid-template-columns: repeat(4,1fr);
+    padding: 2px;
+    background:$thirdColor;
+    border-radius:5px;
+    .answer-box{
+    display:grid;
+    align-items:center;
+    height: 30px;
+    border-radius:5px;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    background: $primaryColor;
+    margin: 2px;
+    cursor: pointer;
+     &:hover{
+        background:$activeColor;
+        transition:0.3s ease-in-out;
+    }
+    .answer{
+    color: $secondaryColor;
+    border:none;
+}
+}
+
+}
+
+// media query
+@media only screen and (max-width: 768px){
+     .answer-box{
+         height:50px;
+     }
+    .answer{
+        font-size:0.8rem;
+    }
+}
