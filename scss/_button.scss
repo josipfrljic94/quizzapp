@@ -1,0 +1,49 @@
+@import "./config";
+
+%btn{
+      display: grid;
+    align-items: center;
+    text-align: center;
+     height: 35px;
+    width: 80px;
+    border-radius:5px;
+    background: $activeColor;
+    color: $secondaryColor;
+    box-shadow:2px 3px 2px grey;
+    cursor: pointer;
+    position:absolute;
+    top:15px;
+    font-weight:bold;
+    text-transform:uppercase;
+    color:$lightColor;
+    &:hover{
+       transform:scale(0.985);
+        box-shadow:1px 2px 2px darkgrey;
+    }
+}
+
+.next{
+    @extend %btn;
+       right: 0;
+}
+
+.prev{
+    @extend %btn;
+    left: 0;
+}
+.prev.hidden{
+    display: none;
+}
+.next.hidden{
+    display: none;
+}
+.finish{
+    @extend %btn;
+    display:none;
+    right: 0;
+}
+.finish.active{
+    display: grid;
+}
+
+

@@ -1,0 +1,39 @@
+@import "./config";
+
+.track-broj{
+    height: 50px;
+    width: 50px;
+    border-radius:5px 0 0px 5px;
+    box-shadow:2px 4px 3px  grey;
+   background:$primaryColor;
+   color: $secondaryColor;
+text-align: center;
+display: grid;
+margin:5px 0;
+cursor: pointer;
+&:hover{
+    background:$activeColor;
+     box-shadow:1px 2px 2px  darkgrey;
+    transition: 0.4s ease-in-out;
+}
+.line-broj{
+    margin-top: 25%;
+    font-weight: bolder;
+ }
+}
+.track-broj.active{
+    background: $activeColor; 
+}
+
+// media query
+@media only screen and (max-width: 768px){
+.question-track{
+    display:flex;
+    width:100%;
+    justify-content:center;
+    justify-content:space-around;
+}
+.track-broj{
+  border-radius:5px;
+}
+}

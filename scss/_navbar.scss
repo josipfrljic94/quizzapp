@@ -1,0 +1,32 @@
+@import "./config";
+
+header{
+    background:$secondaryColor;
+
+.nav{
+    height:10vh;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    li{
+        font-size:1.3rem;
+      
+        list-style:none;
+        a{
+             margin:0 15px;
+            text-decoration:none;
+             color:$primaryColor;
+        }
+    }
+    .logo{
+        
+        img{
+            height:50px;
+        width:100px;
+        }
+    }
+
+}
+}
